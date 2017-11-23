@@ -1,7 +1,7 @@
-Easing library: Copyright 2017 Chuan Khoo
+Arduino Easing Library Copyright 2010 Andy Brown.
 
-A direct port of Andy Brown's Easing Functions
-http://www.andybrown.me.uk
+The contents of this repository is a derivative of Andy Brown's Arduino Easing Library.
+Copyright 2017 Chuan Khoo
 
 This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
 https://creativecommons.org/licenses/by-sa/4.0/

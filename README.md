@@ -1,40 +1,80 @@
 # easing
 
-A Particle library for easing
-## Welcome to your library!
+Easing library port of the Arduino Easing Library (Anthony Brown), for the Particle platform.
 
-To get started, modify the sources in [src](src). Rename the example folder inside [examples](examples) to a more meaningful name and add additional examples in separate folders.
-
-To compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).
-
-Libraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.
-
-After the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.
-
-_TODO: update this README_
+The Arduino Easing library itself is an AVR port of the original ActionScript easing functions (Robert Penner). For those of you who used to develop heavily in AS2/AS3, this will be very familiar to you as the Tweener classes. For more background and examples of the easing functions go to: http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/
 
 ## Usage
 
-Connect XYZ hardware, add the easing library to your project and follow this simple example:
+Refer to the basic example for a method that uses the [SparkIntervalTimer](https://github.com/pkourany/SparkIntervalTimer) library to trigger easing updates at regular time intervals. This is just one method to have time-accurate easing setup in your Particle device / Arduino.
 
-```
-#include "easing.h"
-Easing easing;
-
-void setup() {
-  easing.begin();
-}
-
-void loop() {
-  easing.process();
-}
-```
+It is up to you to implement your own approach to timing intervals, reversal (i.e. palindrome/yoyo animation); the role of this easing library is to calculate easing curve values.
 
 See the [examples](examples) folder for more details.
 
+_TODO: more examples_
+
 ## Documentation
 
-TODO: Describe `Easing`
+Import the library. Use the Particle library management interface to do this.
+
+```
+#include "easing.h"
+```
+
+Instantiate an easing class according to your preference:
+```
+SineEase easeObj;
+```
+
+Besides a sine ease, you can also choose from:
+
+```
+BackEase easeObj;
+BounceEase easeObj;
+CircularEase easeObj;
+CubicEase easeObj;
+ElasticEase easeObj;
+ExponentialEase easeObj;
+LinearEase easeObj;
+QuadraticEase easeObj;
+QuarticEase easeObj;
+QuinticEase easeObj;
+```
+(Refer to http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/ on what each easing type does)
+
+Initialise the easing object by defining the duration, in seconds, needed of the easing operation. Typically this is done in `setup()` or anywhere in your code right before the easing is triggered:
+```
+easeObj.setDuration(EASE_DUR);
+```
+
+Next, define the magnitude of the easing range. This consequently determines the resolution of the easing function along with setDuration. Depending on use case, a good starting range is 100. This means your easing function will output values from 0.0 to 100.0. Setting setDuration to 1 will give you a normalised range (0. to 1.), although you will lose PLENTY of resolution.
+
+```
+easeObj.setTotalChangeInPosition(100);
+```
+
+Finally, calculate the eased position by calling the easeIn / easeOut / easeInOut function. This is typically called in some looping / animation routine in your code:
+```
+easedPosition = easeObj.easeInOut(t);
+```
+(where `easedPosition` is a previously declared double to store the eased range, and `t` is a fractional increment between 0.0 and EASE_DUR (set in `setDuration`)).
+
+## Additional Functions
+
+Two of the easing methods allow further configuration:
+
+### BackEase
+__setOvershoot(NUMBER)__  
+set the overshoot value. The higher the value the greater the overshoot.
+
+### ElasticEase
+__setPeriod(NUMBER)__  
+set the period.  
+
+__setAmplitude(NUMBER)__  
+set the amplitude.
+
 
 ## Contributing
 
@@ -55,6 +95,10 @@ At this point, you can create a [GitHub pull request](https://help.github.com/ar
 If you wish to make your library public, use `particle library publish` or `Publish` command.
 
 ## LICENSE
+Arduino Easing Library Copyright 2010 Andy Brown.
+
+The contents of this repository is a derivative of Andy Brown's Arduino Easing Library.
 Copyright 2017 Chuan Khoo
 
-Licensed under the <insert your choice of license here> license
+This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+https://creativecommons.org/licenses/by-sa/4.0/

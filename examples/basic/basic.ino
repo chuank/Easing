@@ -2,7 +2,8 @@
  *
  * Basic.ino
  * This example demonstrates how the easing library can be used along with the SparkIntervalTimer
- * to create a repeating 'tween' from 0. to 100. using a sine easing curve
+ * to create a repeating 'tween' from 0.0 to 100.0 using a sine easing curve. Remember to import the
+ * SparkIntervalTimer library to use this example.
  */
 
 #include "SparkIntervalTimer.h"
@@ -39,8 +40,7 @@ const double FENCE_OFFSET = (1000%EASE_FPS) ? 0 : EASE_GRAIN;       // fencepost
 double t = 0.0;     // sec; current point of the ease between 0. and EASE_DUR
 
 // debug
-long elapsed;       // debug var to track elapsed time between eases
-
+long elapsed;       // debug var to track elapsed time for each complete ease
 
 void setup() {
     delay(2000);
