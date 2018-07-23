@@ -6,18 +6,18 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-EasingBase  KEYWORD1
-BackEase  KEYWORD1
-BounceEase KEYWORD1
-CircularEase KEYWORD1
-CubicEase KEYWORD1
-ElasticEase KEYWORD1
-ExponentialEase KEYWORD1
-LinearEase KEYWORD1
-QuadraticEase KEYWORD1
-QuarticEase KEYWORD1
-QuinticEase KEYWORD1
-SineEase  KEYWORD1
+EasingBase	KEYWORD1
+BackEase	KEYWORD1
+BounceEase	KEYWORD1
+CircularEase	KEYWORD1
+CubicEase	KEYWORD1
+ElasticEase	KEYWORD1
+ExponentialEase	KEYWORD1
+LinearEase	KEYWORD1
+QuadraticEase	KEYWORD1
+QuarticEase	KEYWORD1
+QuinticEase	KEYWORD1
+SineEase	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
