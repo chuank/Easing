@@ -1,14 +1,14 @@
 # easing
 
-Easing library port of the Arduino Easing Library (Anthony Brown), for the Particle platform.
+Easing library port of the [Arduino Easing Library](http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/) (Anthony Brown), for the Particle platform.
 
-The Arduino Easing library itself is an AVR port of the original ActionScript easing functions (Robert Penner). For those of you who used to develop heavily in AS2/AS3, this will be very familiar to you as the Tweener classes. For more background and examples of the easing functions go to: http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/
+The Arduino Easing Library itself is an AVR port of the original ActionScript easing functions [Robert Penner](http://robertpenner.com/easing/). For those of you who used to develop heavily in AS2/AS3, this will be very familiar to you as the Tweener classes. For more background and examples of the easing functions go to: http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/
 
 ## Usage
 
-Refer to the basic example for a method that uses the [SparkIntervalTimer](https://github.com/pkourany/SparkIntervalTimer) library to trigger easing updates at regular time intervals. This is just one method to have time-accurate easing setup in your Particle device / Arduino.
+Refer to the basic example for a method that uses the [SparkIntervalTimer](https://github.com/pkourany/SparkIntervalTimer) library to trigger easing updates at regular time intervals. Note that this is just one method in implementing time-accurate easing in your Particle device.
 
-It is up to you to implement your own approach to timing intervals, reversal (i.e. palindrome/yoyo animation); the role of this easing library is to calculate easing curve values.
+It is up to you to implement your own approach to timing intervals, reversal (i.e. palindrome/yoyo animation).
 
 See the [examples](examples) folder for more details.
 
@@ -17,7 +17,6 @@ _TODO: more examples_
 ## Documentation
 
 Import the library. Use the Particle library management interface to do this.
-
 ```
 #include "easing.h"
 ```
@@ -27,8 +26,7 @@ Instantiate an easing class according to your preference:
 SineEase easeObj;
 ```
 
-Besides a sine ease, you can also choose from:
-
+Besides a sinusoidal ease, you can also choose from:
 ```
 BackEase easeObj;
 BounceEase easeObj;
@@ -49,7 +47,6 @@ easeObj.setDuration(EASE_DUR);
 ```
 
 Next, define the magnitude of the easing range. This consequently determines the resolution of the easing function along with setDuration. Depending on use case, a good starting range is 100. This means your easing function will output values from 0.0 to 100.0. Setting setDuration to 1 will give you a normalised range (0. to 1.), although you will lose PLENTY of resolution.
-
 ```
 easeObj.setTotalChangeInPosition(100);
 ```
@@ -59,6 +56,7 @@ Finally, calculate the eased position by calling the easeIn / easeOut / easeInOu
 easedPosition = easeObj.easeInOut(t);
 ```
 (where `easedPosition` is a previously declared double to store the eased range, and `t` is a fractional increment between 0.0 and EASE_DUR (set in `setDuration`)).
+
 
 ## Additional Functions
 
@@ -82,7 +80,7 @@ Here's how you can make changes to this library and eventually contribute those 
 
 To get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).
 
-Change the name of the library in `library.properties` to something different. You can add your name at then end.
+Change the name of the library in `library.properties` to something different. You can add your name at the end.
 
 Modify the sources in <src> and <examples> with the new behavior.
 
@@ -93,12 +91,3 @@ After your changes are done you can upload them with `particle library upload` o
 At this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.
 
 If you wish to make your library public, use `particle library publish` or `Publish` command.
-
-## LICENSE
-Arduino Easing Library Copyright 2010 Andy Brown.
-
-The contents of this repository is a derivative of Andy Brown's Arduino Easing Library.
-Copyright 2017 Chuan Khoo
-
-This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-https://creativecommons.org/licenses/by-sa/4.0/
