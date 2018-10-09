@@ -18,21 +18,22 @@
 class EasingBase
 {
 protected:
-	NUMBER _change;
-	NUMBER _duration;
+  NUMBER _change;
+  NUMBER _duration;
 
 public:
-	// default constructor
-	EasingBase();
+  // default constructor
+  EasingBase();
 
-	// easing API methods
-	virtual NUMBER easeIn(NUMBER time_) const=0;
-	virtual NUMBER easeOut(NUMBER time_) const=0;
-	virtual NUMBER easeInOut(NUMBER time_) const=0;
+  // easing API methods
+  virtual NUMBER easeIn(NUMBER time_) const    = 0;
+  virtual NUMBER easeOut(NUMBER time_) const   = 0;
+  virtual NUMBER easeInOut(NUMBER time_) const = 0;
 
-	// common properties
-	void setDuration(NUMBER duration_);
-	void setTotalChangeInPosition(NUMBER totalChangeInPosition_);
+
+  // common properties
+  void setDuration(NUMBER duration_);
+  void setTotalChangeInPosition(NUMBER totalChangeInPosition_);
 };
 
 

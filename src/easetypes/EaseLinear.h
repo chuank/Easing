@@ -17,17 +17,19 @@
  * Linear ease
  */
 
-class LinearEase : public EasingBase
+class EaseLinear : public EasingBase
 {
 public:
-	// no acceleration
-	virtual NUMBER easeIn(NUMBER time_) const;
+  // no acceleration
+  virtual NUMBER easeIn(NUMBER time_) const;
 
-	// no acceleration
-	virtual NUMBER easeOut(NUMBER time_) const;
 
-	// no acceleration
-	virtual NUMBER easeInOut(NUMBER time_) const;
+  // no acceleration
+  virtual NUMBER easeOut(NUMBER time_) const;
+
+
+  // no acceleration
+  virtual NUMBER easeInOut(NUMBER time_) const;
 };
 
 

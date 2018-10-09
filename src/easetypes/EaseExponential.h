@@ -17,19 +17,21 @@
  *  the motion is defined by an exponentially decaying sine wave
  */
 
-class ExponentialEase : public EasingBase
+class EaseExponential : public EasingBase
 {
 public:
 
-	//starts motion slowly, and then accelerates motion as it executes
-	virtual NUMBER easeIn(NUMBER time_) const;
+  //starts motion slowly, and then accelerates motion as it executes
+  virtual NUMBER easeIn(NUMBER time_) const;
 
-	// starts motion fast, and then decelerates motion as it executes
-	virtual NUMBER easeOut(NUMBER time_) const;
 
-	//combines the motion of the easeIn and easeOut methods to start the
-	// motion slowly, accelerate motion, then decelerate
-	virtual NUMBER easeInOut(NUMBER time_) const;
+  // starts motion fast, and then decelerates motion as it executes
+  virtual NUMBER easeOut(NUMBER time_) const;
+
+
+  //combines the motion of the easeIn and easeOut methods to start the
+  // motion slowly, accelerate motion, then decelerate
+  virtual NUMBER easeInOut(NUMBER time_) const;
 };
 
 

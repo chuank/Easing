@@ -2,17 +2,20 @@
 
 Easing library port of the [Arduino Easing Library](http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/) (Anthony Brown), for the Particle platform.
 
-The Arduino Easing Library itself is an AVR port of the original ActionScript easing functions [Robert Penner](http://robertpenner.com/easing/). For those of you who used to develop heavily in AS2/AS3, this will be very familiar to you as the Tweener classes. For more background and examples of the easing functions go to: http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/
+Note: the Arduino Easing Library itself is an AVR port of the original ActionScript easing functions [Robert Penner](http://robertpenner.com/easing/). For those of you who used to develop heavily in AS2/AS3, this will be familiar to you as the Tweener classes. For more background and visual examples of the easing functions go to: http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/
 
 ## Usage
 
-Refer to the basic example for a method that uses the [SparkIntervalTimer](https://github.com/pkourany/SparkIntervalTimer) library to trigger easing updates at regular time intervals. Note that this is just one method in implementing time-accurate easing in your Particle device.
+Refer to the basic example app for a method that uses the [SparkIntervalTimer](https://github.com/pkourany/SparkIntervalTimer) library to trigger easing updates at regular time intervals. Note that this is just one method in implementing time-accurate easing in your Particle device.
+
+Updates
 
 It is up to you to implement your own approach to timing intervals, reversal (i.e. palindrome/yoyo animation).
 
 See the [examples](examples) folder for more details.
 
-_TODO: more examples_
+_TODO: more examples_  
+_TODO: class to manage updates via selectable h/w or s/w timer?_
 
 ## Documentation
 
@@ -23,21 +26,21 @@ Import the library. Use the Particle library management interface to do this.
 
 Instantiate an easing class according to your preference:
 ```
-SineEase easeObj;
+EaseSine easeObj;
 ```
 
 Besides a sinusoidal ease, you can also choose from:
 ```
-BackEase easeObj;
-BounceEase easeObj;
-CircularEase easeObj;
-CubicEase easeObj;
-ElasticEase easeObj;
-ExponentialEase easeObj;
-LinearEase easeObj;
-QuadraticEase easeObj;
-QuarticEase easeObj;
-QuinticEase easeObj;
+EaseBack easeObj;
+EaseBounce easeObj;
+EaseCircular easeObj;
+EaseCubic easeObj;
+EaseElastic easeObj;
+EaseExponential easeObj;
+EaseLinear easeObj;
+EaseQuadratic easeObj;
+EaseQuartic easeObj;
+EaseQuintic easeObj;
 ```
 (Refer to http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/ on what each easing type does)
 
@@ -62,16 +65,29 @@ easedPosition = easeObj.easeInOut(t);
 
 Two of the easing methods allow further configuration:
 
-### BackEase
+### EaseBack
 __setOvershoot(NUMBER)__  
 set the overshoot value. The higher the value the greater the overshoot.
 
-### ElasticEase
+### EaseElastic
 __setPeriod(NUMBER)__  
 set the period.  
 
 __setAmplitude(NUMBER)__  
 set the amplitude.
+
+
+## Credits
+
+Easing Functions: Copyright (c) 2010 [Andy Brown](http://www.andybrown.me.uk)  
+This work is licensed under a Creative Commons Attribution_ShareAlike 3.0 Unported License.  
+http://creativecommons.org/licenses/by_sa/3.0/
+
+
+Particle Easing library port & class [Arduino Easing Library](http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/) (Anthony Brown), for the Particle platform.
+
+Note: the Arduino Easing Library itself is an AVR port of the original ActionScript easing functions [Robert Penner](http://robertpenner.com/easing/). For those of you who used to develop heavily in AS2/AS3, this will be familiar to you as the Tweener classes. For more background and visual examples of the easing functions go to: http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/
+
 
 
 ## Contributing

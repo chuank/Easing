@@ -17,21 +17,23 @@
  * Bouncing easing function
  */
 
-class BounceEase : public EasingBase
+class EaseBounce : public EasingBase
 {
 public:
-	// starts the bounce motion slowly,
+  // starts the bounce motion slowly,
   // then accelerates motion as it executes
-	virtual NUMBER easeIn(NUMBER time_) const;
+  virtual NUMBER easeIn(NUMBER time_) const;
 
-	// starts the bounce motion fast,
+
+  // starts the bounce motion fast,
   // and then decelerates motion as it executes.
-	virtual NUMBER easeOut(NUMBER time_) const;
+  virtual NUMBER easeOut(NUMBER time_) const;
 
-	// combines the motion of the easeIn and easeOut
-	// methods to start the bounce motion slowly,
-	// accelerate motion, then decelerate.
-	virtual NUMBER easeInOut(NUMBER time_) const;
+
+  // combines the motion of the easeIn and easeOut
+  // methods to start the bounce motion slowly,
+  // accelerate motion, then decelerate.
+  virtual NUMBER easeInOut(NUMBER time_) const;
 };
 
 

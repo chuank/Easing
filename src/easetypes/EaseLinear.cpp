@@ -7,16 +7,16 @@
  * http://creativecommons.org/licenses/by-sa/3.0/
  */
 
-#include "LinearEase.h"
+#include "EaseLinear.h"
 
 
 /*
  * Ease in
  */
 
-NUMBER LinearEase::easeIn(NUMBER time_) const
+NUMBER EaseLinear::easeIn(NUMBER time_) const
 {
-	return _change*time_/_duration;
+  return _change * time_ / _duration;
 }
 
 
@@ -24,9 +24,9 @@ NUMBER LinearEase::easeIn(NUMBER time_) const
  * Ease out
  */
 
-NUMBER LinearEase::easeOut(NUMBER time_) const
+NUMBER EaseLinear::easeOut(NUMBER time_) const
 {
-	return easeIn(time_);
+  return easeIn(time_);
 }
 
 
@@ -34,7 +34,7 @@ NUMBER LinearEase::easeOut(NUMBER time_) const
  * Ease in and out
  */
 
-NUMBER LinearEase::easeInOut(NUMBER time_) const
+NUMBER EaseLinear::easeInOut(NUMBER time_) const
 {
-	return easeIn(time_);
+  return easeIn(time_);
 }

@@ -7,17 +7,17 @@
 #######################################
 
 EasingBase	KEYWORD1
-BackEase	KEYWORD1
-BounceEase	KEYWORD1
-CircularEase	KEYWORD1
-CubicEase	KEYWORD1
-ElasticEase	KEYWORD1
-ExponentialEase	KEYWORD1
-LinearEase	KEYWORD1
-QuadraticEase	KEYWORD1
-QuarticEase	KEYWORD1
-QuinticEase	KEYWORD1
-SineEase	KEYWORD1
+EaseBack	KEYWORD1
+EaseBounce	KEYWORD1
+EaseCircular	KEYWORD1
+EaseCubic	KEYWORD1
+EaseElastic	KEYWORD1
+EaseExponential	KEYWORD1
+EaseLinear	KEYWORD1
+EaseQuadratic	KEYWORD1
+EaseQuartic	KEYWORD1
+EaseQuintic	KEYWORD1
+EaseSine	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

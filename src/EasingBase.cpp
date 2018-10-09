@@ -15,7 +15,7 @@
 
 EasingBase::EasingBase()
 {
-	_change=0;
+  _change = 0;
 }
 
 
@@ -25,7 +25,7 @@ EasingBase::EasingBase()
 
 void EasingBase::setDuration(NUMBER duration_)
 {
-	_duration=duration_;
+  _duration = duration_;
 }
 
 
@@ -35,5 +35,5 @@ void EasingBase::setDuration(NUMBER duration_)
 
 void EasingBase::setTotalChangeInPosition(NUMBER totalChangeInPosition_)
 {
-	_change=totalChangeInPosition_;
+  _change = totalChangeInPosition_;
 }

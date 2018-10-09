@@ -7,7 +7,7 @@
  * http://creativecommons.org/licenses/by-sa/3.0/
  */
 
-#include "CubicEase.h"
+#include "EaseCubic.h"
 
 
 /*
@@ -15,11 +15,11 @@
  * accelerates motion as it executes.
  */
 
-NUMBER CubicEase::easeIn(NUMBER time_) const
+NUMBER EaseCubic::easeIn(NUMBER time_) const
 {
-	time_/=_duration;
+  time_ /= _duration;
 
-	return _change*time_*time_*time_;
+  return _change * time_ * time_ * time_;
 }
 
 
@@ -28,11 +28,11 @@ NUMBER CubicEase::easeIn(NUMBER time_) const
  * to a zero velocity as it executes.
  */
 
-NUMBER CubicEase::easeOut(NUMBER time_) const
+NUMBER EaseCubic::easeOut(NUMBER time_) const
 {
-	time_=time_/_duration-1;
+  time_ = time_ / _duration - 1;
 
-	return _change*(time_*time_*time_+1);
+  return _change * (time_ * time_ * time_ + 1);
 }
 
 
@@ -42,13 +42,13 @@ NUMBER CubicEase::easeOut(NUMBER time_) const
  * then decelerates back to a zero velocity.
  */
 
-NUMBER CubicEase::easeInOut(NUMBER time_) const
+NUMBER EaseCubic::easeInOut(NUMBER time_) const
 {
-	time_/=_duration/2;
+  time_ /= _duration / 2;
 
-	if (time_<1)
-		return _change/2*time_*time_*time_;
+  if (time_ < 1)
+    return _change / 2 * time_ * time_ * time_;
 
-	time_-=2;
-	return _change/2*(time_*time_*time_+2);
+  time_ -= 2;
+  return _change / 2 * (time_ * time_ * time_ + 2);
 }

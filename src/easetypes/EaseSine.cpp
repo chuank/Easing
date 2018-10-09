@@ -8,16 +8,16 @@
  */
 
 #include <math.h>
-#include "SineEase.h"
+#include "EaseSine.h"
 
 
 /*
  * Ease in
  */
 
-NUMBER SineEase::easeIn(NUMBER time_) const
+NUMBER EaseSine::easeIn(NUMBER time_) const
 {
-	return -_change*cos(time_/_duration*M_PI_2)+_change;
+  return -_change*cos(time_ / _duration * M_PI_2) + _change;
 }
 
 
@@ -25,9 +25,9 @@ NUMBER SineEase::easeIn(NUMBER time_) const
  * Ease out
  */
 
-NUMBER SineEase::easeOut(NUMBER time_) const
+NUMBER EaseSine::easeOut(NUMBER time_) const
 {
-	return _change*sin(time_/_duration*M_PI_2);
+  return _change * sin(time_ / _duration * M_PI_2);
 }
 
 
@@ -35,7 +35,7 @@ NUMBER SineEase::easeOut(NUMBER time_) const
  * Ease in and out
  */
 
-NUMBER SineEase::easeInOut(NUMBER time_) const
+NUMBER EaseSine::easeInOut(NUMBER time_) const
 {
-	return -_change/2*(cos(M_PI*time_/_duration)-1);
+  return -_change / 2 * (cos(M_PI * time_ / _duration) - 1);
 }
