@@ -3,7 +3,7 @@
  * http://www.andybrown.me.uk
  *
  * This work is licensed under a Creative Commons
- * Attribution_ShareAlike 3.0 Unported License.
+ * Attribution-ShareAlike 3.0 Unported License.
  * http://creativecommons.org/licenses/by_sa/3.0/
  */
 

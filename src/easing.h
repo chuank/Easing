@@ -1,5 +1,3 @@
-#pragma once
-
 /*
    Particle Easing library
    Copyright 2017 Chuan Khoo
@@ -20,18 +18,21 @@
    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-   Basic.ino
-   This example demonstrates how the easing library can be used along with the SparkIntervalTimer
-   to create a repeating 'tween' from 0.0 to 100.0 using a sine easing curve. Remember to import the
-   SparkIntervalTimer library to use this example.
  */
+
+#pragma once
+
+#if PLATFORM_ID != 6  // only the Photon is supported for now
+   #error "This library only works on the Photon"
+#endif
 
 // This will load the definition for common Particle variable types
 #include "Particle.h"
 
-#ifndef __35B04FAD_DF21_40e9_8652_8E61F19D3912
-#define __35B04FAD_DF21_40e9_8652_8E61F19D3912
+#ifndef __EASING_H__
+#define __EASING_H__
+
+#include "EasingConstants.h"
 
 // include all the easing implementations
 #include "easetypes/EaseBack.h"
@@ -46,4 +47,27 @@
 #include "easetypes/EaseQuintic.h"
 #include "easetypes/EaseSine.h"
 
-#endif
+
+class Easing {
+public:
+  Easing(EasingBase _easebase, NUMBER _dur, NUMBER _totalChange, uint8_t _fps) const;
+
+  void
+  begin(void);
+
+  NUMBER
+  getDuration(void),
+  getFPS(void);
+
+
+private:
+
+  NUMBER
+    EASE_FPS = 25,   // set a 'refresh rate' for the easing curve, in frames/updates per second
+    EASE_DUR = 3.0,  // sec
+    EASE_GRAIN,      // sec
+    EASE_GRAIN_USEC, // uSec
+    FENCE_OFFSET;    // fencepost error offset flag; if 1000ms is divisible by FPS, we need another position update to complete the easing function
+};
+
+#endif  // __EASING_H__

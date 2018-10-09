@@ -15,8 +15,7 @@
 
 // base class for easing functions
 
-class EasingBase
-{
+class EasingBase {
 protected:
   NUMBER _change;
   NUMBER _duration;
